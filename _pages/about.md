@@ -13,7 +13,7 @@ profile:
     <p>Department of Agricultural Convergence Technology</p>
     <p>Jeonbuk National University, Jeonju, South Korea</p>
 
-selected_papers: true
+# selected_papers: true
 social: true
 
 # announcements:
@@ -43,6 +43,6 @@ I aim to better understand the **evolutionary dynamics of viruses** and their ro
 ---
 
 If you would like to know more about my work or collaborate,  
-please feel free to [contact me](mailto:your_email@example.com) or check out my profiles below.  
+please feel free to [contact me](mailto:07jikim@gmail.com) or check out my profiles below.  
 
 Thanks for visiting my site!
