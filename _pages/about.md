@@ -9,9 +9,11 @@ profile:
   image: prof_pic.jpg
   image_circular: true
   more_info: >
-    <p>Insect Molecular Biology Lab</p>
-    <p>Department of Agricultural Convergence Technology</p>
-    <p>Jeonbuk National University, Jeonju, South Korea</p>
+    <ul>
+      <li>Insect Molecular Biology Lab</li>
+      <li>Department of Agricultural Convergence Technology</li>
+      <li>Jeonbuk National University, Jeonju, South Korea</li>
+    </ul>
 
 # selected_papers: true
 social: true
