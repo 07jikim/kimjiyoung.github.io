@@ -1,4 +1,4 @@
-name: Deploy site
+name: Deploy Jekyll Site to GitHub Pages
 
 on:
   push:
@@ -66,41 +66,30 @@ permissions:
 
 jobs:
   deploy:
-    # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout repository 🛎️
         uses: actions/checkout@v4
+
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.3.5"
+          ruby-version: 3.1 # 안정성과 GitHub Pages 기본 호환을 위해 3.1로 낮춤
           bundler-cache: true
-      - name: Setup Python 🐍
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-          cache: "pip" # caching pip dependencies
-      - name: Update _config.yml ⚙️
-        uses: fjogeleit/yaml-update-action@main
-        with:
-          commitChange: false
-          valueFile: "_config.yml"
-          propertyPath: "giscus.repo"
-          value: ${{ github.repository }}
-      - name: Install and Build 🔧
+
+      - name: Install dependencies 📦
         run: |
-          sudo apt-get update && sudo apt-get install -y imagemagick
-          pip3 install --upgrade nbconvert
           bundle install
+
+      - name: Build the site 🏗️
+        run: |
           export JEKYLL_ENV=production
           bundle exec jekyll build
-      - name: Purge unused CSS 🧹
-        run: |
-          npm install -g purgecss
-          purgecss -c purgecss.config.js
-      - name: Deploy 🚀
+
+      - name: Deploy to GitHub Pages 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: _site
+          branch: gh-pages
