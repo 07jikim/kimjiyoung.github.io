@@ -75,7 +75,7 @@ jobs:
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1 # 안정성과 GitHub Pages 기본 호환을 위해 3.1로 낮춤
+          ruby-version: 3.3.5 # 안정성과 GitHub Pages 기본 호환을 위해 3.1로 낮춤
           bundler-cache: true
 
       - name: Install dependencies 📦
